@@ -196,6 +196,15 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "PowerShellStandard.Library/5.1.0-preview-03": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Management.Automation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Management.Automation.dll": {}
+        }
       }
     }
   },
@@ -520,10 +529,10 @@
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
         "LICENSE.TXT",
-        "Microsoft.NETCore.Platforms.2.0.0.nupkg.sha512",
-        "Microsoft.NETCore.Platforms.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -656,42 +665,49 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "PowerShellStandard.Library/5.1.0-preview-03": {
+      "sha512": "ziLfdoH1fM6BPs0rb18SSkgAto3faukmLJUTKvX6j16B0MLHMc2W3Knfy+/5zmB2T1u9gy/EhWY/czmUXLDRvg==",
+      "type": "package",
+      "path": "powershellstandard.library/5.1.0-preview-03",
+      "files": [
+        "lib/netstandard2.0/System.Management.Automation.dll",
+        "powershellstandard.library.5.1.0-preview-03.nupkg.sha512",
+        "powershellstandard.library.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "PowerShellStandard.Library >= 5.1.0-preview-03"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dhaanpaa\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/dhaanpaa/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\PowershellCore.Linux.Mangement\\PowershellCore.Linux.Mangement\\PowershellCore.Linux.Mangement.csproj",
+      "projectUniqueName": "/Users/dhaanpaa/Projects/DotNet/powershellcore-linuxtools/PowershellCore.Linux.Mangement/PowershellCore.Linux.Mangement.csproj",
       "projectName": "PowershellCore.Linux.Mangement",
-      "projectPath": "C:\\projects\\PowershellCore.Linux.Mangement\\PowershellCore.Linux.Mangement\\PowershellCore.Linux.Mangement.csproj",
-      "packagesPath": "C:\\Users\\dhaanpaa\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\PowershellCore.Linux.Mangement\\PowershellCore.Linux.Mangement\\obj\\",
+      "projectPath": "/Users/dhaanpaa/Projects/DotNet/powershellcore-linuxtools/PowershellCore.Linux.Mangement/PowershellCore.Linux.Mangement.csproj",
+      "packagesPath": "/Users/dhaanpaa/.nuget/packages/",
+      "outputPath": "/Users/dhaanpaa/Projects/DotNet/powershellcore-linuxtools/PowershellCore.Linux.Mangement/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dhaanpaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/Users/dhaanpaa/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/QO8NcM4cmRDqteYRydWDAc8s3jkgquNKN83GhIwAZh13VOeRHW/api": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
@@ -712,6 +728,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "PowerShellStandard.Library": {
+            "target": "Package",
+            "version": "[5.1.0-preview-03, )"
           }
         },
         "imports": [
