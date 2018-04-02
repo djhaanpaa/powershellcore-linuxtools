@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Management.Automation;
+using System.Runtime.InteropServices;
 
 namespace PowershellCore.Linux.Mangement.Cmdlets
 {
@@ -16,12 +17,16 @@ namespace PowershellCore.Linux.Mangement.Cmdlets
         protected override void EndProcessing()
         {
             var runCommand = _commandLineInterface.RunCommand("uname -a").SplitStringBySpaces();
+            var isMacOsx = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+
             WriteObject(new
             {
                 OS = runCommand[0],
                 HostName = runCommand[1],
                 KernelVersion = runCommand[2],
-                Architecture = runCommand[runCommand.Length-1]
+                Architecture = isMacOsx ? 
+                    runCommand[runCommand.Length - 1] : 
+                    runCommand[runCommand.Length - 2]
             });
         }
     }
