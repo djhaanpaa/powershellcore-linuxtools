@@ -4,10 +4,14 @@ using System.Runtime.InteropServices;
 
 namespace PowershellCore.Linux.Mangement.Cmdlets
 {
+    
+    /// <summary>
+    /// This CmdLet is to be able to get a Kernel Version
+    /// </summary>
     [Cmdlet(VerbsCommon.Get, "KernelVersion")]
     public class GetKernelVersion : PSCmdlet
     {
-        private CommandLineInterface _commandLineInterface;
+        private readonly CommandLineInterface _commandLineInterface;
 
         public GetKernelVersion()
         {
@@ -18,8 +22,7 @@ namespace PowershellCore.Linux.Mangement.Cmdlets
         {
             var runCommand = _commandLineInterface.RunCommand("uname -a").SplitStringBySpaces();
             var isMacOsx = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-
-            WriteObject(new
+            var lks = new KernelVersionInfo
             {
                 OS = runCommand[0],
                 HostName = runCommand[1],
@@ -27,7 +30,16 @@ namespace PowershellCore.Linux.Mangement.Cmdlets
                 Architecture = isMacOsx ? 
                     runCommand[runCommand.Length - 1] : 
                     runCommand[runCommand.Length - 2]
-            });
+            };
+            WriteObject(lks);
         }
+    }
+
+    public class KernelVersionInfo
+    {
+        public string OS { get; set; }
+        public string HostName { get; set; }
+        public string KernelVersion { get; set; }
+        public string Architecture { get; set; }
     }
 }
